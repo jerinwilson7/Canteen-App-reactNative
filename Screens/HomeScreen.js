@@ -33,7 +33,7 @@ const HomeScreen = () => {
             </Text>
             <Text className="font-gilroySemiBold text-xl">
               Location
-              <ChevronDownIcon size={20} color="#00CCBB" />
+              <ChevronDownIcon size={19} color="#00CCBB" />
             </Text>
           </View>
           <View>
