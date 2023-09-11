@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderRadius: {
+        log: "40px",
+      },
       colors: {
         inchWorm: "#C5ED70",
         raisingBlack: "#161621",
