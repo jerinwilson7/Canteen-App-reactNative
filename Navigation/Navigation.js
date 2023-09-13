@@ -1,7 +1,12 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import { HomeScreen, OnboardingScreen, SignInScreen } from "../Screens";
+import {
+  HomeScreen,
+  LogInScreen,
+  OnboardingScreen,
+  SignInScreen,
+} from "../Screens";
 import { TailwindProvider } from "tailwindcss-react-native";
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +32,7 @@ const Navigation = () => {
           <Stack.Screen name="Onboarding" component={OnboardingScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="SignIn" component={SignInScreen} />
+          <Stack.Screen name="LogIn" component={LogInScreen} />
         </Stack.Navigator>
       </TailwindProvider>
     </NavigationContainer>
