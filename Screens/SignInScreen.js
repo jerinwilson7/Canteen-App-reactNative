@@ -43,6 +43,12 @@ const SignInScreen = () => {
               </Text>
             </TouchableOpacity>
           </View>
+          <View className="flex-row justify-center">
+            <Text>Already have an account?</Text>
+            <TouchableOpacity>
+              <Text className="text-sky-600">Login </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
