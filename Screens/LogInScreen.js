@@ -1,7 +1,11 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const LogInScreen = () => {
+  const navigation = useNavigation();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <View className="flex">
       {/* Header */}
@@ -22,6 +26,8 @@ const LogInScreen = () => {
             e-mail
           </Text>
           <TextInput
+            value={email}
+            onChangeText={(text) => setEmail(text)}
             underlineColorAndroid="grey"
             keyboardType="email-address"
             className="mb-3 pb-1 pt-2"
@@ -30,6 +36,8 @@ const LogInScreen = () => {
             Password
           </Text>
           <TextInput
+            value={password}
+            onChangeText={(text) => setPassword(text)}
             underlineColorAndroid="grey"
             secureTextEntry
             className="mb-3 pb-1 pt-2"
@@ -43,7 +51,7 @@ const LogInScreen = () => {
           </View>
           <View className="flex-row justify-center">
             <Text>Don't have an account?</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
               <Text className="text-sky-600">Signup </Text>
             </TouchableOpacity>
           </View>
