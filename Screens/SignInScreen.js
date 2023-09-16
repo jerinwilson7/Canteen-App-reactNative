@@ -3,17 +3,47 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  Pressable,
   SafeAreaView,
+  Alert,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 const SignInScreen = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+
+  // Make an API request to your backend here
+
+  // const [message, setMessage] = useState("");
+
+  // useEffect(async () => {
+  //   // Make a GET request to your Express.js backend
+  //   await axios
+  //     .post("http://localhost:3000")
+  //     .then((response) => {
+  //       Alert.alert("backend connected");
+  //       // Update the state with the message from the backend
+  //       setMessage(response.data.message);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
+
+  const handleSubmit = async () => {
+    if (name === "" || email === "" || password === "") {
+      Alert.alert("req");
+      return;
+    }
+    await axios.get("http://localhost:3000/").then((res) => {
+      console.log(res);
+    });
+    Alert.alert("sreq");
+  };
 
   return (
     <SafeAreaView className="flex">
@@ -59,7 +89,10 @@ const SignInScreen = () => {
             className="mb-3 pb-1 pt-2"
           />
           <View className="w-full">
-            <TouchableOpacity className="w-full rounded-2xl bg-seaGreen p-5 mt-7">
+            <TouchableOpacity
+              onPress={handleSubmit}
+              className="w-full rounded-2xl bg-seaGreen p-5 mt-7"
+            >
               <Text className="text-xl font-gilroyBold text-center text-white">
                 Signup
               </Text>
