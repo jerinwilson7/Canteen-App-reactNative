@@ -34,15 +34,17 @@ const SignInScreen = () => {
   //     });
   // }, []);
 
+  // if (name === "" || email === "" || password === "") {
+  //   Alert.alert("req");
+  //   return;
+  // }
   const handleSubmit = async () => {
-    if (name === "" || email === "" || password === "") {
-      Alert.alert("req");
-      return;
+    try {
+      const response = await axios.get("http://192.168.211.203:3000/users");
+      console.log(response.data);
+    } catch (error) {
+      console.error("An error occurred:", error);
     }
-    await axios.get("http://localhost:3000/").then((res) => {
-      console.log(res);
-    });
-    Alert.alert("sreq");
   };
 
   return (

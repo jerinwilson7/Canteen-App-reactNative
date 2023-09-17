@@ -7,7 +7,6 @@ import {
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
 import Navigation from "./Navigation/Navigation";
-import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
