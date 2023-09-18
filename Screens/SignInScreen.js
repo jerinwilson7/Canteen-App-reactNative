@@ -18,30 +18,19 @@ const SignInScreen = () => {
 
   // Make an API request to your backend here
 
-  // const [message, setMessage] = useState("");
-
-  // useEffect(async () => {
-  //   // Make a GET request to your Express.js backend
-  //   await axios
-  //     .post("http://localhost:3000")
-  //     .then((response) => {
-  //       Alert.alert("backend connected");
-  //       // Update the state with the message from the backend
-  //       setMessage(response.data.message);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
-
-  // if (name === "" || email === "" || password === "") {
-  //   Alert.alert("req");
-  //   return;
-  // }
   const handleSubmit = async () => {
+    console.log("handle");
+    if (name === "" || email === "" || password === "") {
+      Alert.alert("required");
+      return;
+    }
     try {
-      const response = await axios.get("http://192.168.211.203:3000/users");
-      console.log(response.data);
+      await axios.post("http://192.168.211.203:3000/users/create-user", {
+        name,
+        email,
+        password,
+      });
+      console.log("data send");
     } catch (error) {
       console.error("An error occurred:", error);
     }
