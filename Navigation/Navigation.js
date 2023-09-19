@@ -29,9 +29,9 @@ const Navigation = () => {
           screenOptions={{ headerShown: false }}
           // initialRouteName={hasSeenOnboarding ? "Onboarding" : "Home"}
         >
-          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="SignIn" component={SignInScreen} />
+          {/* <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />*/}
+          <Stack.Screen name="SignUp" component={SignInScreen} />
           <Stack.Screen name="LogIn" component={LogInScreen} />
         </Stack.Navigator>
       </TailwindProvider>

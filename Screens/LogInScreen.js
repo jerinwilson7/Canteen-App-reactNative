@@ -23,7 +23,7 @@ const LogInScreen = () => {
       <View className=" flex mt-16 mx-4 space-y-4 ">
         <View className=" p-4  focus-within:shadow-lg space-x-2">
           <Text className=" text-gray-500 font-gilroySemiBold text-base">
-            e-mail
+            E-mail
           </Text>
           <TextInput
             value={email}
