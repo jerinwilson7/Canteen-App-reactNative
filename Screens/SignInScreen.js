@@ -60,7 +60,7 @@ const SignInScreen = () => {
             className="mb-3 pb-1 pt-2"
           />
           <Text className=" text-gray-500 font-gilroySemiBold text-base">
-            e-mail
+            E-mail
           </Text>
           <TextInput
             value={email}
