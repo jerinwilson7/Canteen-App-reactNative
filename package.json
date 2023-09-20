@@ -29,6 +29,8 @@
     "react-native-onboarding-swiper": "^1.2.0",
     "react-native-reanimated": "~3.3.0",
     "react-native-tailwindcss": "^1.1.11",
+    "react-redux": "^8.1.2",
+    "redux": "^4.2.1",
     "tailwindcss-react-native": "^1.7.10"
   },
   "devDependencies": {
