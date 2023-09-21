@@ -85,7 +85,7 @@ const SignInScreen = () => {
               className="w-full rounded-2xl bg-seaGreen p-5 mt-7"
             >
               <Text className="text-xl font-gilroyBold text-center text-white">
-                Signup
+                Create Account
               </Text>
             </TouchableOpacity>
           </View>
