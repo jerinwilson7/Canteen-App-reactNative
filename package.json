@@ -30,12 +30,15 @@
     "react-native-onboarding-swiper": "^1.2.0",
     "react-native-reanimated": "~3.3.0",
     "react-native-tailwindcss": "^1.1.11",
+    "react-native-toast-message": "^2.1.6",
     "react-redux": "^8.1.2",
     "redux": "^4.2.1",
-    "tailwindcss-react-native": "^1.7.10"
+    "tailwindcss-react-native": "^1.7.10",
+    "toastify-react-native": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "react-native-dotenv": "^3.4.9",
     "tailwindcss": "^3.3.2"
   },
   "private": true

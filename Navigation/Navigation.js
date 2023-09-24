@@ -8,32 +8,21 @@ import {
   SignInScreen,
 } from "../Screens";
 import { TailwindProvider } from "tailwindcss-react-native";
+import Toast from "react-native-toast-message";
 
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
-  // const navigation = useNavigation();
-  // const [hasSeenOnboarding, setHasSeenOnboarding] = useState(true);
-
-  // useEffect(() => {
-  //   if (hasSeenOnboarding && navigation) {
-  //     // User has seen the onboarding screen, navigate to the main screen.
-  //     navigation.navigate("Home");
-  //   }
-  // }, [hasSeenOnboarding, navigation]);
-
   return (
     <NavigationContainer>
       <TailwindProvider>
-        <Stack.Navigator
-          screenOptions={{ headerShown: false }}
-          // initialRouteName={hasSeenOnboarding ? "Onboarding" : "Home"}
-        >
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
           {/* <Stack.Screen name="Onboarding" component={OnboardingScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />*/}
           <Stack.Screen name="SignUp" component={SignInScreen} />
           <Stack.Screen name="LogIn" component={LogInScreen} />
         </Stack.Navigator>
+        <Toast />
       </TailwindProvider>
     </NavigationContainer>
   );

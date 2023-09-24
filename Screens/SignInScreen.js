@@ -9,6 +9,8 @@ import {
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
+import { server } from "@env";
+import Toast from "react-native-toast-message";
 
 const SignInScreen = () => {
   const navigation = useNavigation();
@@ -16,19 +18,48 @@ const SignInScreen = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
+  const user = {
+    name,
+    email,
+    password,
+  };
   // Make an API request to your backend here
 
   const handleSubmit = async () => {
     console.log("handle");
     if (name === "" || email === "" || password === "") {
-      Alert.alert("required");
+      Toast.show({
+        type: "error",
+        text1: "required all fields",
+      });
       return;
     }
+    const user = {
+      name,
+      email,
+      password,
+    };
+
+    // axios
+    //   .post(`${server}/users/create-user`, user)
+    //   .then((res) => {
+    //     Toast.success(res);
+    //     // setName("");
+    //     // setEmail("");
+    //     // setPassword("");
+    //     // setAvatar();
+    //   })
+    //   .catch((err) => {
+    //     Toast.error(err);
+    //   });
+
     try {
-      await axios.post("http://192.168.211.203:3000/users/create-user", {
-        name,
-        email,
-        password,
+      await axios.post(`${server}/users/create-user`, user);
+      Toast.show({
+        type: "success",
+        text1: "data send",
+        autoHide: true,
+        position: "bottom",
       });
       console.log("data send");
     } catch (error) {
