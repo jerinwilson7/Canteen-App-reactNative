@@ -54,7 +54,7 @@ const SignInScreen = () => {
     //   });
 
     try {
-      await axios.post(`${server}/users/create-user`, user);
+      await axios.post(`${server}/auth/create-user`, user);
       Toast.show({
         type: "success",
         text1: "data send",
