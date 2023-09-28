@@ -18,11 +18,11 @@ const SignInScreen = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
-  const user = {
-    name,
-    email,
-    password,
-  };
+  // const user = {
+  //   name,
+  //   email,
+  //   password,
+  // };
   // Make an API request to your backend here
 
   const handleSubmit = async () => {
@@ -34,6 +34,8 @@ const SignInScreen = () => {
       });
       return;
     }
+    console.log(server);
+    // console.log(server);
     const user = {
       name,
       email,
@@ -54,13 +56,17 @@ const SignInScreen = () => {
     //   });
 
     try {
-      await axios.post(`${server}/auth/create-user`, user);
-      Toast.show({
-        type: "success",
-        text1: "data send",
-        autoHide: true,
-        position: "bottom",
-      });
+      await axios
+        .post(`http://192.168.236.203:3000/auth/create-user`, user)
+        .then((res) => {
+          console.log(res.data.message);
+          Toast.show({
+            type: "success",
+            text1: res.data.message,
+            autoHide: true,
+            position: "bottom",
+          });
+        });
       console.log("data send");
     } catch (error) {
       console.error("An error occurred:", error);
