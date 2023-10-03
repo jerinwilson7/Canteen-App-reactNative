@@ -1,11 +1,41 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import Toast from "react-native-toast-message";
+import axios from "axios";
+import { server } from "@env";
 
 const LogInScreen = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSubmit = async () => {
+    console.log("handle");
+    if (email === "" || password === "") {
+      Toast.show({
+        type: "error",
+        text1: "required all fields",
+      });
+      return;
+    }
+    let user = {
+      email,
+      password,
+    };
+    try {
+      await axios.post(`${server}/auth/login`, user).then((res) => {
+        Toast.show({
+          type: "success",
+          text1: res.data.message,
+        });
+      });
+      console.log("data send");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <View className="flex">
       {/* Header */}
@@ -43,7 +73,10 @@ const LogInScreen = () => {
             className="mb-3 pb-1 pt-2"
           />
           <View className="w-full">
-            <TouchableOpacity className="w-full rounded-2xl bg-seaGreen p-5 mt-7">
+            <TouchableOpacity
+              onPress={handleSubmit}
+              className="w-full rounded-2xl bg-seaGreen p-5 mt-7"
+            >
               <Text className="text-xl font-gilroyBold text-center text-white">
                 Login
               </Text>

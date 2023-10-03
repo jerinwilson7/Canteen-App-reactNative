@@ -9,7 +9,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import { server } from "@env";
+import { server, SERVER } from "@env";
 import Toast from "react-native-toast-message";
 
 const SignInScreen = () => {
@@ -57,7 +57,9 @@ const SignInScreen = () => {
 
     try {
       await axios
-        .post(`http://192.168.236.203:3000/auth/create-user`, user)
+        .post(`${server}/auth/create-user`, user)
+        // .post("http://192.168.230.203:3000/auth/create-user", user)
+
         .then((res) => {
           console.log(res.data.message);
           Toast.show({

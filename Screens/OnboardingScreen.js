@@ -12,8 +12,8 @@ const OnboardingScreen = () => {
     const checkOnboardingStatus = async () => {
       const value = await AsyncStorage.getItem("@onboarding_complete");
       // console.log(value);
-      if (value != null && value === "false") {
-        navigation.replace("SignIn");
+      if (value != null && value === "true") {
+        navigation.replace("SignUp");
       }
     };
     checkOnboardingStatus();
@@ -21,7 +21,7 @@ const OnboardingScreen = () => {
 
   const handleOnboardingComplete = async (e) => {
     await AsyncStorage.setItem("@onboarding_complete", "true");
-    navigation.navigate("SignIn");
+    navigation.navigate("SignUp");
   };
 
   return (
