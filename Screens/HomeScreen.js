@@ -29,10 +29,10 @@ const HomeScreen = () => {
           />
           <View className="flex-1">
             <Text className="font-gilroyBold text-gray-500 text-xs">
-              Delivery To
+              Canteen
             </Text>
             <Text className="font-gilroySemiBold text-xl">
-              Location
+              Book Now
               <ChevronDownIcon size={19} color="#00CCBB" />
             </Text>
           </View>
