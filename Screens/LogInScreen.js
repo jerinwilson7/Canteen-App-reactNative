@@ -4,8 +4,10 @@ import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-toast-message";
 import axios from "axios";
 import { server } from "@env";
+import { connect } from "react-redux";
+import { GeneralAction } from "../Acton";
 
-const LogInScreen = () => {
+const LogInScreen = ({ setToken }) => {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +19,7 @@ const LogInScreen = () => {
         type: "error",
         text1: "required all fields",
       });
+
       return;
     }
     let user = {
@@ -24,13 +27,16 @@ const LogInScreen = () => {
       password,
     };
     try {
-      await axios.post(`${server}/auth/login`, user).then((res) => {
-        Toast.show({
-          type: "success",
-          text1: res.data.message,
+      await axios
+        .post(`http://192.168.63.203:3000/auth/login`, user)
+        .then((res) => {
+          Toast.show({
+            type: "success",
+            text1: res.data.message,
+          });
+          setToken(res.data);
         });
-      });
-      console.log("data send");
+      navigation.navigate("Home");
     } catch (error) {
       console.log(error);
     }
@@ -94,4 +100,10 @@ const LogInScreen = () => {
   );
 };
 
-export default LogInScreen;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setToken: (token) => dispatch(GeneralAction.setToken(token)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(LogInScreen);

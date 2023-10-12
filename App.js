@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import Store from "./Store/Store";
+import { Provider } from "react-redux";
 import {
   Inter_400Regular,
   Inter_500Medium,
@@ -32,5 +34,9 @@ export default function App() {
     SplashScreen.hideAsync();
   }
 
-  return <Navigation />;
+  return (
+    <Provider store={Store}>
+      <Navigation />
+    </Provider>
+  );
 }
