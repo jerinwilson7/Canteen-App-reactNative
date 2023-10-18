@@ -11,7 +11,6 @@ const OnboardingScreen = () => {
   useEffect(() => {
     const checkOnboardingStatus = async () => {
       const value = await AsyncStorage.getItem("@onboarding_complete");
-      // console.log(value);
       if (value != null && value === "true") {
         navigation.replace("SignUp");
       }
