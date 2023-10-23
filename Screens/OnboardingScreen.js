@@ -5,22 +5,21 @@ import { OnboardingCard } from "../Components";
 import AppIntroSlider from "react-native-app-intro-slider";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import StorageService from "../Services/StorageService";
+import { GeneralAction } from "../Acton";
 
 const OnboardingScreen = () => {
-  const navigation = useNavigation();
-  useEffect(() => {
-    const checkOnboardingStatus = async () => {
-      const value = await AsyncStorage.getItem("@onboarding_complete");
-      if (value != null && value === "true") {
-        navigation.replace("SignUp");
-      }
-    };
-    checkOnboardingStatus();
-  }, []);
+  const dispatch = useDispatch();
 
-  const handleOnboardingComplete = async (e) => {
-    await AsyncStorage.setItem("@onboarding_complete", "true");
-    navigation.navigate("SignUp");
+  const navigate = async () => {
+    try {
+      await StorageService.setFirstTimeUse();
+      dispatch(GeneralAction.setIsFirstTimeUse());
+    } catch (error) {
+      // Handle error properly, e.g., show an error message to the user
+      console.error("Error setting first time use:", error);
+    }
   };
 
   return (
@@ -35,7 +34,7 @@ const OnboardingScreen = () => {
           showsHorizontalScrollIndicator={false}
           showSkipButton
           skipLabel={<Text className="text-white font-gilroyMedium">Skip</Text>}
-          onDone={handleOnboardingComplete}
+          onDone={() => navigate()}
         />
       </View>
     </SafeAreaView>

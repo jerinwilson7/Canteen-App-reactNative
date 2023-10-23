@@ -57,8 +57,8 @@ const SignInScreen = () => {
 
     try {
       await axios
-        .post(`${server}/auth/create-user`, user)
-        // .post("http://192.168.230.203:3000/auth/create-user", user)
+        // .post(`${server}/auth/create-user`, user)
+        .post("http://192.168.180.203:3000/auth/create-user", user)
 
         .then((res) => {
           console.log(res.data.message);
