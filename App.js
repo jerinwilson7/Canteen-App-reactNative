@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import Store from "./Store/Store";
 import { Provider } from "react-redux";
+import { Store } from "./Store/Store";
+
 import {
   Inter_400Regular,
   Inter_500Medium,
