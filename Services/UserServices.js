@@ -1,5 +1,5 @@
 import axios from "axios";
-import SERVER from "@env";
+import { SERVER } from "@env";
 import { authHeader } from "../utils/Generator";
 import { getToken } from "../Store/Store";
 
@@ -11,6 +11,7 @@ const getUserData = async () => {
       headers: authHeader(getToken()),
     });
     if (userResponse.status === 200) {
+      console.log(userResponse);
       return {
         status: true,
         message: `User data fetched`,
