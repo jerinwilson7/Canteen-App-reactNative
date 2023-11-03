@@ -1,21 +1,24 @@
 import axios from "axios";
-import { SERVER } from "@env";
 import { authHeader } from "../utils/Generator";
 import { getToken } from "../Store/Store";
 
 const getUserData = async () => {
-  console.log("user Services | getUserData");
-
+  console.log(`UserService | getUserData`);
   try {
-    let userResponse = await axios.get(`${SERVER}/users/get-user`, {
-      headers: authHeader(getToken()),
-    });
-    if (userResponse.status === 200) {
-      console.log(userResponse);
+    let token = await getToken();
+
+    let userResponse = await axios.get(
+      "http://192.168.28.203:3000/users/get-user",
+      {
+        headers: authHeader(token),
+      }
+    );
+
+    if (userResponse?.status === 200) {
       return {
         status: true,
         message: `User data fetched`,
-        data: userResponse.data,
+        data: userResponse?.data,
       };
     } else {
       return {
@@ -26,8 +29,8 @@ const getUserData = async () => {
   } catch (error) {
     return {
       status: false,
-      message: error.response.data.message
-        ? error.response.data.message
+      message: error?.response?.data?.message
+        ? error?.response?.data?.message
         : `User data not found`,
     };
   }

@@ -1,11 +1,19 @@
 import axios from "axios";
 import { SERVER } from "@env";
+import { getToken } from "../Store/Store";
+import { authHeader } from "../utils/Generator";
 
 const refreshToken = async () => {
   try {
-    let tokenResponse = await axios.post(`${SERVER}/users/refresh-token`, {
-      headers: authHeader(getToken()),
-    });
+    let token = await getToken();
+    console.log(token);
+    let tokenResponse = await axios.post(
+      "http://192.168.28.203:3000/auth/refresh-token",
+      {
+        headers: authHeader(token),
+      }
+    );
+    console.log(tokenResponse.data);
     if (tokenResponse?.status === 200) {
       return { status: true, data: tokenResponse?.data };
     } else {
