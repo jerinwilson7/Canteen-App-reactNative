@@ -6,7 +6,6 @@ import { authHeader } from "../utils/Generator";
 const refreshToken = async () => {
   try {
     let token = await getToken();
-    console.log(token);
     let tokenResponse = await axios.post(
       "http://192.168.28.203:3000/auth/refresh-token",
       {

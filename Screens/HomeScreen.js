@@ -14,6 +14,7 @@ import {
   ShoppingBagIcon,
   UserIcon,
 } from "react-native-heroicons/outline";
+import Categories from "../Components/Categories";
 
 const HomeScreen = () => {
   return (
@@ -56,7 +57,11 @@ const HomeScreen = () => {
 
         {/* Body */}
 
-        <ScrollView></ScrollView>
+        {/* Body View */}
+        <ScrollView>
+          {/* Categories */}
+          <Categories />
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
