@@ -14,7 +14,7 @@ import {
   ShoppingBagIcon,
   UserIcon,
 } from "react-native-heroicons/outline";
-import Categories from "../Components/Categories";
+import { Categories, FeaturedRow } from "../Components";
 
 const HomeScreen = () => {
   return (
@@ -61,6 +61,24 @@ const HomeScreen = () => {
         <ScrollView>
           {/* Categories */}
           <Categories />
+          {/* Featured Rows */}
+          <FeaturedRow
+            id="123"
+            title="featured"
+            description="paid placements"
+          />
+          {/* Tasty discounts */}
+          <FeaturedRow
+            id="1234"
+            title="Tasty Discounts"
+            description="paid placements"
+          />
+          {/* offers for you */}
+          <FeaturedRow
+            id="12345"
+            title="Offers for you"
+            description="paid placements"
+          />
         </ScrollView>
       </View>
     </SafeAreaView>
