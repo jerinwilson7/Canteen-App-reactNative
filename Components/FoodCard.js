@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { StarIcon } from "react-native-heroicons/outline";
 
-const FoodCards = ({
+const FoodCard = ({
   id,
   imgUrl,
   title,
@@ -35,4 +35,4 @@ const FoodCards = ({
   );
 };
 
-export default FoodCards;
+export default FoodCard;

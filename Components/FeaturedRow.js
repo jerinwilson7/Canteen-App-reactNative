@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
-import FoodCards from "./FoodCards";
+import FoodCard from "./FoodCard";
 
 const FeaturedRow = ({ id, title, description }) => {
   return (
@@ -21,7 +21,7 @@ const FeaturedRow = ({ id, title, description }) => {
         className="pt-4"
       >
         {/* FoodCards */}
-        <FoodCards
+        <FoodCard
           id={123}
           imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
           title="Szechuan"
@@ -33,7 +33,7 @@ const FeaturedRow = ({ id, title, description }) => {
           long={20}
           lat={0}
         />
-        <FoodCards
+        <FoodCard
           id={123}
           imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
           title="Szechuan"
@@ -45,7 +45,7 @@ const FeaturedRow = ({ id, title, description }) => {
           long={20}
           lat={0}
         />
-        <FoodCards
+        <FoodCard
           id={123}
           imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
           title="Szechuan"
@@ -57,7 +57,7 @@ const FeaturedRow = ({ id, title, description }) => {
           long={20}
           lat={0}
         />
-        <FoodCards
+        <FoodCard
           id={123}
           imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
           title="Szechuan"
@@ -69,7 +69,7 @@ const FeaturedRow = ({ id, title, description }) => {
           long={20}
           lat={0}
         />
-        <FoodCards
+        <FoodCard
           id={123}
           imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
           title="Szechuano"
@@ -81,7 +81,7 @@ const FeaturedRow = ({ id, title, description }) => {
           long={20}
           lat={0}
         />
-        <FoodCards
+        <FoodCard
           id={123}
           imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
           title="Szechuan"
@@ -93,7 +93,7 @@ const FeaturedRow = ({ id, title, description }) => {
           long={20}
           lat={0}
         />
-        <FoodCards
+        <FoodCard
           id={123}
           imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
           title="Szechuan"
