@@ -14,11 +14,16 @@ import {
   ShoppingBagIcon,
   UserIcon,
 } from "react-native-heroicons/outline";
-import { Categories, FeaturedRow } from "../Components";
+import { BottomTab, Categories, FeaturedRow } from "../Components";
+import { useNavigation } from "@react-navigation/native";
+
+
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
-    <SafeAreaView className="flex-1 pt-7 bg-white">
+    <SafeAreaView className="flex-1 pt-7 bg-white pb-24">
       <View>
         {/* Header */}
         <View className="flex-row items-center mx-2 px-4 pb-3 space-x-2">
@@ -38,7 +43,9 @@ const HomeScreen = () => {
             </Text>
           </View>
           <View>
-            <ShoppingBagIcon size={25} color="#00CCBB" />
+            <ShoppingBagIcon size={25} color="#00CCBB" 
+            onPress={()=> navigation.navigate('cart')} 
+             />
           </View>
         </View>
 
@@ -62,11 +69,19 @@ const HomeScreen = () => {
           {/* Categories */}
           <Categories />
           {/* Featured Rows */}
-          <FeaturedRow
+          <FeaturedRow 
+            id="123"
+            title="free"
+            description="paid placements"
+            
+          />
+          <FeaturedRow 
             id="123"
             title="featured"
             description="paid placements"
+            
           />
+
           {/* Tasty discounts */}
           <FeaturedRow
             id="1234"

@@ -1,9 +1,22 @@
 import { View, Text, ScrollView } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
 import FoodCard from "./FoodCard";
+import axios from "axios";
+import { server } from "../server/server";
 
 const FeaturedRow = ({ id, title, description }) => {
+  useEffect(() => {
+  fetchFoods();
+  }, [])
+
+  const [foodList, setFoodList] = useState([])
+
+  const fetchFoods = async()=>{
+
+  const response =  await axios.get(`${server}/admin/get-all-products`)
+  setFoodList(response.data)
+  }
   return (
     <View>
       <View className="flex-row items-center justify-between mt-4 px-4">
@@ -21,90 +34,23 @@ const FeaturedRow = ({ id, title, description }) => {
         className="pt-4"
       >
         {/* FoodCards */}
-        <FoodCard
-          id={123}
-          imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
-          title="Szechuan"
-          rating={4.7}
-          genre="chineese"
+        {foodList?.map((food)=>(
+
+        <FoodCard key={food._id}
+          id={food._id}
+          imgUrl={food.file}
+          title={food.title}
+          // rating={4.7}
+          genre={food.category}
           address="st jons"
           short_description="good"
           dishes={[]}
           long={20}
           lat={0}
+          
         />
-        <FoodCard
-          id={123}
-          imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
-          title="Szechuan"
-          rating={4.7}
-          genre="chineese"
-          address="st jons"
-          short_description="good"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-        <FoodCard
-          id={123}
-          imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
-          title="Szechuan"
-          rating={4.7}
-          genre="chineese"
-          address="st jons"
-          short_description="good"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-        <FoodCard
-          id={123}
-          imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
-          title="Szechuan"
-          rating={4.7}
-          genre="chineese"
-          address="st jons"
-          short_description="good"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-        <FoodCard
-          id={123}
-          imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
-          title="Szechuano"
-          rating={4.7}
-          genre="chineese"
-          address="st jons"
-          short_description="good"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-        <FoodCard
-          id={123}
-          imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
-          title="Szechuan"
-          rating={3}
-          genre="chineese"
-          address="st jons"
-          short_description="good"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-        <FoodCard
-          id={123}
-          imgUrl="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
-          title="Szechuan"
-          rating={3}
-          genre="chineese"
-          address="st jons"
-          short_description="good"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
+        ))}
+        
       </ScrollView>
     </View>
   );
