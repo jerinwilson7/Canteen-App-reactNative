@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo.png",
+      "image": "./assets/canteen.png",
       "resizeMode": "cover",
       "backgroundColor": "#171215"
     },
