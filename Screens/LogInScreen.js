@@ -4,9 +4,9 @@ import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-toast-message";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { server } from "@env";
 import { GeneralAction } from "../Acton";
 import StorageService from "../Services/StorageService";
+import { server } from "../server/server";
 
 const LogInScreen = ({ setToken }) => {
   const navigation = useNavigation();
@@ -16,6 +16,7 @@ const LogInScreen = ({ setToken }) => {
 
   const handleSubmit = async () => {
     console.log("handle");
+    console.log(server)
     if (email === "" || password === "") {
       Toast.show({
         type: "error",
@@ -30,7 +31,7 @@ const LogInScreen = ({ setToken }) => {
     };
     try {
       await axios
-        .post(`http://192.168.28.203:3000/auth/login`, user)
+        .post(`${server}/auth/login`, user)
         .then((res) => {
           console.log(res.data.status);
           if (res.data.status === 200) {

@@ -9,8 +9,8 @@ import {
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import { server, SERVER } from "@env";
 import Toast from "react-native-toast-message";
+import { server } from "../server/server";
 
 const SignInScreen = () => {
   const navigation = useNavigation();
@@ -56,11 +56,11 @@ const SignInScreen = () => {
     //   });
 
     try {
-      await axios
+  await axios
         // .post(`${server}/auth/create-user`, user)
-        .post("http://192.168.180.203:3000/auth/create-user", user)
-
+        .post(`${server}/auth/create-user`, user)
         .then((res) => {
+          console.log("res")
           console.log(res.data.message);
           Toast.show({
             type: "success",
