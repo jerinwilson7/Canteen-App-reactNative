@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useDispatch, useSelector } from "react-redux";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import {
+  CartScreen,
   HomeScreen,
   LogInScreen,
   OnboardingScreen,
@@ -41,7 +42,10 @@ const Navigation = () => {
               <Stack.Screen name="LogIn" component={LogInScreen} />
             </>
           ) : (
+            <>
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="cart" component={CartScreen} />
+            </>
           )}
         </Stack.Navigator>
         <Toast />
