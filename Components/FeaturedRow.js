@@ -47,6 +47,8 @@ const FeaturedRow = ({ id, title, description }) => {
           title={food.title}
           price ={food.price}
           quantity = {food.quantity}
+          ShortDescription={food.description}
+          category={food.category}
           // rating={4.7}
           genre={food.category}
         

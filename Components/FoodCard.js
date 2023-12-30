@@ -7,7 +7,8 @@ const FoodCard = ({
   id,
   imgUrl,
   title,
-  description,
+  ShortDescription,
+  category,
   price,
   rating,
   genre,
@@ -22,7 +23,8 @@ const FoodCard = ({
       id,
       imgUrl,
       title,
-      description,
+      ShortDescription,
+      category,
       price,
       name
     })}>

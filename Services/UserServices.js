@@ -1,18 +1,17 @@
 import axios from "axios";
 import { authHeader } from "../utils/Generator";
 import { getToken } from "../Store/Store";
+import { server } from "../server/server";
 
 const getUserData = async () => {
   console.log(`UserService | getUserData`);
   try {
     let token = await getToken();
 
-    let userResponse = await axios.get(
-      "http://192.168.28.203:3000/users/get-user",
-      {
-        headers: authHeader(token),
-      }
-    );
+    let userResponse = await axios.get(`${server}/users/get-user`, 
+    {
+      headers: authHeader(token),
+    });
 
     if (userResponse?.status === 200) {
       return {

@@ -20,6 +20,7 @@ module.exports = {
         paleOrange: "#FEAC56",
         chineseBlack: "#171215",
         mistBlue: "#6A6D7C",
+        cyanGreen:"#00CCBB"
       },
       fontFamily: {
         gilroyRegular: "gilroyRegular",
