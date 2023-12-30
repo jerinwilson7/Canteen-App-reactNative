@@ -1,21 +1,33 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { StarIcon } from "react-native-heroicons/outline";
+import { useNavigation } from "@react-navigation/native";
 
 const FoodCard = ({
   id,
   imgUrl,
   title,
+  ShortDescription,
+  category,
+  price,
   rating,
   genre,
-  address,
-  short_description,
-  dishes,
-  long,
-  lat,
+  name
+ 
+
 }) => {
+  const navigation =useNavigation();
   return (
-    <TouchableOpacity className="mr-2 bg-white shadow" onPress={()=>console.log(id)}>
+
+    <TouchableOpacity className="mr-2 bg-white shadow" onPress={()=>navigation.navigate('Food',{
+      id,
+      imgUrl,
+      title,
+      ShortDescription,
+      category,
+      price,
+      name
+    })}>
       <Image
         source={{
           uri: imgUrl,
@@ -24,7 +36,7 @@ const FoodCard = ({
         
        />
       <View className="pb-4 px-3">
-        <Text className="pt-2 font-bold text-lg">{title}</Text>
+        <Text className="pt-2 font-bold text-lg">{name}</Text>
         <View className="flex-row items-center space-x-2">
           <StarIcon color="green" size={22} opacity={0.5} />
           <Text className="text-sm text-gray-500"> 

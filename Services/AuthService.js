@@ -1,13 +1,13 @@
 import axios from "axios";
-import { SERVER } from "@env";
 import { getToken } from "../Store/Store";
 import { authHeader } from "../utils/Generator";
+import { server } from "../server/server";
 
 const refreshToken = async () => {
   try {
     let token = await getToken();
     let tokenResponse = await axios.post(
-      "http://192.168.28.203:3000/auth/refresh-token",
+      `${server}/auth/refresh-token`,
       {
         headers: authHeader(token),
       }
