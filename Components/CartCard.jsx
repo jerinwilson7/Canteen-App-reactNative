@@ -6,8 +6,11 @@ import { CartAction } from "../Acton";
 import { MinusIcon, PlusIcon } from "react-native-heroicons/outline";
 
 const CartCard = ({ foodId, name, imgUrl, description, price }) => {
-  const navigation = useNavigation();
+  const navigation= useNavigation();
   const dispatch = useDispatch();
+
+
+ 
 
  
   const itemQuantity = useSelector(
@@ -16,16 +19,17 @@ const CartCard = ({ foodId, name, imgUrl, description, price }) => {
         .quantity
   );
 
-  const addToCart = (foodId) => 
+  const addToCart = (foodId) => {
     dispatch(CartAction.addToCart({ foodId }));
+  }
   
    
   const removeFromCart = (foodId) =>
     dispatch(CartAction.removeFromCart({ foodId }));
   return (
-    <View className=" flex-1 flex-row items-center  ">
+    <View className=" flex-1 flex-row items-center">
       <Image
-        source={{
+        source={{   
           uri: imgUrl,
         }}
         alt="cartFoodImage"
@@ -47,6 +51,7 @@ const CartCard = ({ foodId, name, imgUrl, description, price }) => {
               color="#00CCBB"
               className=" "
               onPress={()=>removeFromCart(foodId)}
+              // onPress={()=>removeFromCart(foodId)}
             />
             <Text className=" items-center text-lg font-interBold text-chineseBlack mx-2  ">{itemQuantity}</Text>
             </>
@@ -54,7 +59,7 @@ const CartCard = ({ foodId, name, imgUrl, description, price }) => {
             <PlusIcon
               size={25}
               color="#00CCBB"
-              onPress={()=>addToCart(foodId)}
+              onPress={(e)=>addToCart(foodId)}
             />
           </View>
         </View>
