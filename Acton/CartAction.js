@@ -6,6 +6,7 @@ const types ={
 }
 
 const addToCart = ({foodId}) => {
+  console.log("action"+foodId)
     return dispatch => {
       dispatch({
         type: types.SET_IS_LOADING,
@@ -13,7 +14,10 @@ const addToCart = ({foodId}) => {
       });
       CartServices.addToCart({foodId})
         .then(cartResponse => {
+          console.log(cartResponse.data)
+          
           dispatch({
+            
             type: types.GET_CART_ITEMS,
             payload: cartResponse?.data,
           });
@@ -22,13 +26,13 @@ const addToCart = ({foodId}) => {
             payload: false,
           });
         })
-        .catch(() => {
-          dispatch({
+        .catch((error) => {
+          dispatch({ 
             type: types.SET_IS_LOADING,
             payload: false,
           });
         });
-    };
+    }; 
   };
   
   const removeFromCart = ({foodId}) => {
@@ -37,8 +41,9 @@ const addToCart = ({foodId}) => {
         type: types.SET_IS_LOADING,
         payload: true,
       });
-      CartServices.removeFromCart({foodId})
+      CartServices.removeFromCart({foodId}) 
         .then(cartResponse => {
+          console.log(cartResponse.data)
           dispatch({
             type: types.GET_CART_ITEMS,
             payload: cartResponse?.data,
@@ -58,6 +63,8 @@ const addToCart = ({foodId}) => {
   };
   
   const getCartItems = () => {
+    console.log("get")
+
     return dispatch => {
       dispatch({
         type: types.SET_IS_LOADING,
