@@ -43,7 +43,6 @@ const addToCart = ({foodId}) => {
       });
       CartServices.removeFromCart({foodId}) 
         .then(cartResponse => {
-          console.log(cartResponse.data)
           dispatch({
             type: types.GET_CART_ITEMS,
             payload: cartResponse?.data,
