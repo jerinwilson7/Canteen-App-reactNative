@@ -6,7 +6,6 @@ const types ={
 }
 
 const addToCart = ({foodId}) => {
-  console.log("action"+foodId)
     return dispatch => {
       dispatch({
         type: types.SET_IS_LOADING,
@@ -14,7 +13,6 @@ const addToCart = ({foodId}) => {
       });
       CartServices.addToCart({foodId})
         .then(cartResponse => {
-          console.log(cartResponse.data)
           
           dispatch({
             

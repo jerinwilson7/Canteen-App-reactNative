@@ -10,20 +10,24 @@ const CartScreen = () => {
   const navigation = useNavigation();
 
   const cart = useSelector((state) => state.cartState.cart);
+  const handle =() =>{
+    console.log("handle pressed")
+  }
 
   return (
-    <View className="relative  flex flex-1 ">
-      <View className="">
+    <View className="relative">
+      {/* <View className=""> */}
         <TouchableOpacity
-          className="absolute top-2 left-3 p-2 bg-gray-100 rounded-full"
-          onPress={navigation.goBack}
+          className="absolute top-2 left-3 p-2  rounded-full mt-2 mb-2"
+          onPress={handle}
+          // onPress={navigation.goBack}
         >
           <ArrowLeftIcon height={30} width={30} color="#00CCBB" />
         </TouchableOpacity>
         <Text className=" top-2 text-center text-3xl font-gilroySemiBold">
           My Cart
         </Text>
-      </View>
+      {/* </View> */}
         <ScrollView className="flex  mt-4 ">
       <View className="">
           {cart &&
