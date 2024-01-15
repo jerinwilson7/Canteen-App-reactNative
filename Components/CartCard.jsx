@@ -58,7 +58,7 @@ const CartCard = ({ foodId, name, imgUrl, description, price }) => {
             <PlusIcon
               size={25}
               color="#00CCBB"
-              onPress={(e)=>addToCart(foodId)}
+              onPress={()=>addToCart(foodId)}
             />
           </View>
         </View>
