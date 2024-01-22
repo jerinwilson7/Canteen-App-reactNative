@@ -11,9 +11,11 @@
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.3",
     "@react-native-async-storage/async-storage": "1.18.2",
+    "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "@reduxjs/toolkit": "^1.9.5",
+    "@stripe/stripe-react-native": "^0.35.0",
     "axios": "^1.5.0",
     "expo": "~49.0.8",
     "expo-app-loading": "^2.1.1",
