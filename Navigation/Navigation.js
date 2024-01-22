@@ -11,6 +11,7 @@ import {
   SignInScreen,
   SplashScreen,
 } from "../Screens";
+import HomeTabs from './BottomTab.jsx'
 import { TailwindProvider } from "tailwindcss-react-native";
 import Toast from "react-native-toast-message";
 import { GeneralAction } from "../Acton";
@@ -44,7 +45,9 @@ const Navigation = () => {
             </>
           ) : (
             <>
-            <Stack.Screen name="Home" component={HomeScreen} />
+            {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
+
+            <Stack.Screen name="HomeTabs" component={HomeTabs} />
             <Stack.Screen name="cart" component={CartScreen} />
             <Stack.Screen name="Food" component={FoodScreen} />
             </>
