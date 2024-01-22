@@ -10,7 +10,6 @@ import {
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
 import Navigation from "./Navigation/Navigation";
-import { StripeProvider } from "@stripe/stripe-react-native";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -38,10 +37,8 @@ export default function App() {
 
   return (
     <Provider store={Store}>
-      <StripeProvider publishableKey="pk_test_51MrFMwSBc6dGAcRgokxBwFGHP8jh6XMkSEQBcfMlnvgZ5i1v9Zn6BU1yhRmSHOw6dHJUN8jf5GimzWSAOKIoRHFb00jDHQt2ZP">
         
       <Navigation />
-      </StripeProvider>
     </Provider>
   );
 }

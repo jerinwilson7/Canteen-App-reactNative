@@ -28,17 +28,7 @@ const CartScreen = () => {
 
   return (
     <View className="relative">
-      {/* <View className=""> */}
-      <TouchableOpacity
-        className="absolute top-2 left-3 p-2  rounded-full mt-2 mb-2"
-        // onPress={navigation.goBack}
-      >
-        <ArrowLeftIcon height={30} width={30} color="#00CCBB" />
-      </TouchableOpacity>
-      <Text className=" top-2 text-center text-3xl font-gilroySemiBold">
-        My Cart
-      </Text>
-      {/* </View> */}
+      
       <ScrollView className="flex  mt-4 ">
       
         <Text className=" top-2 text-center text-3xl font-gilroySemiBold">
