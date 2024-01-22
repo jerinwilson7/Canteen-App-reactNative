@@ -1,5 +1,6 @@
 # Ignore Node.js modules
 node_modules/
+
 server/
 
 # Ignore compiled code
