@@ -10,7 +10,7 @@ module.exports = function (api) {
         {
           envName: "APP_ENV",
           moduleName: "@env",
-          path: "./config/.env",
+          path: ".env",
           blocklist: null,
           allowlist: null,
           blacklist: null, // DEPRECATED
