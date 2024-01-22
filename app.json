@@ -11,16 +11,18 @@
       "resizeMode": "cover",
       "backgroundColor": "#171215"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.jerin7.HOOMIE"
     },
     "web": {
       "favicon": "./assets/favicon.png"
