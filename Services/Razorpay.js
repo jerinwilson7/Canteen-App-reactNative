@@ -2,14 +2,14 @@ import { RAZORPAY_KEY_ID, RAZORPAY_SECRET_KEY } from "@env";
 import RazorpayCheckout from "react-native-razorpay";
 
 const razorPayPayment = (total) => {
-  console.log("raz"+total);
+  return new Promise((resolve, reject) => {
 
   const razorPayKeyId = "rzp_test_Z30BGEehteYBgV";
   const razorPaySecretKey = "foFX1okXsCus9w1Dr5LGBKVM";
  
 
   const currency = "INR";
-  const amount = total;
+    const amount = total;
 
 
   var options = {
@@ -28,35 +28,28 @@ const razorPayPayment = (total) => {
     theme: { color: "#8F00FF" },
   };
 
-  console.log("object")
 
-  RazorpayCheckout.open(options)
-  .then((data) => {
-    console.log(options); // Move the console.log statement here if needed
-    console.log(data);
-    alert(`Success: ${data.razorpay_payment_id}`);
-  })
- 
-
-
-  // RazorpayCheckout.open(options)
-  // console.log(options)
-  // .then((data)=>{
-  //   console.log(data);
-  //      alert(`Success: ${data.razorpay_payment_id}`);
-  // })
-
-//   Razo.open(options)
-//     .then((data) => {
-//       // handle success
-//       console.log(data);
-//       alert(`Success: ${data.razorpay_payment_id}`);
-//     })
-    .catch((error) => {
-      // handle failure
-      console.log(error);
-      alert(`Error: ${error.code} | ${error.description}`);
-    });
+    RazorpayCheckout.open(options)
+      .then((data) => {
+        console.log(options);
+        console.log(data);
+        const paymentResponse = {
+          status: true,
+          message: "payment success",
+        };
+        resolve(paymentResponse);
+        alert(`Success: ${data.razorpay_payment_id}`);
+      })
+      .catch((error) => {
+        // console.log(error);
+        const paymentResponse = {
+          status: false,
+          message: "payment failed",
+        };
+        reject(paymentResponse);
+        // alert(`Error: ${error.code} | ${error.description}`);
+      });
+  });
 };
 
 export default { razorPayPayment };
