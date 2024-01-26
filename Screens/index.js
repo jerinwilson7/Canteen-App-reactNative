@@ -5,6 +5,7 @@ import LogInScreen from "./LogInScreen";
 import SplashScreen from "./SplashScreen";
 import CartScreen from "./CartScreen";
 import FoodScreen from "./FoodScreen";
+import SuccessScreen from "./SuccessScreen";
 export {
   HomeScreen,
   OnboardingScreen,
@@ -12,5 +13,6 @@ export {
   LogInScreen,
   SplashScreen,
   CartScreen,
-  FoodScreen
+  FoodScreen,
+  SuccessScreen
 };
