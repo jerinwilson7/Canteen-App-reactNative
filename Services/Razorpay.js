@@ -31,11 +31,15 @@ const razorPayPayment = (total) => {
 
     RazorpayCheckout.open(options)
       .then((data) => {
-        console.log(options);
-        console.log(data);
+        console.log(options)
+        console.log("data"+JSON.stringify(data));
         const paymentResponse = {
           status: true,
           message: "payment success",
+          data:{
+            paymentId :data.razorpay_payment_id,
+            amountTotal:options.amount,
+          }
         };
         resolve(paymentResponse);
         alert(`Success: ${data.razorpay_payment_id}`);
