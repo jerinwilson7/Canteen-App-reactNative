@@ -10,6 +10,7 @@ import {
   OnboardingScreen,
   SignInScreen,
   SplashScreen,
+  SuccessScreen,
 } from "../Screens";
 import HomeTabs from './BottomTab.jsx'
 import { TailwindProvider } from "tailwindcss-react-native";
@@ -50,6 +51,7 @@ const Navigation = () => {
             <Stack.Screen name="HomeTabs" component={HomeTabs} />
             <Stack.Screen name="cart" component={CartScreen} />
             <Stack.Screen name="Food" component={FoodScreen} />
+            <Stack.Screen name="Success" component={SuccessScreen} />
             </>
           )}
         </Stack.Navigator>
