@@ -38,7 +38,7 @@ const razorPayPayment = (total) => {
           message: "payment success",
           data:{
             paymentId :data.razorpay_payment_id,
-            amountTotal:options.amount,
+            totalPrice:total,
           }
         };
         resolve(paymentResponse);
