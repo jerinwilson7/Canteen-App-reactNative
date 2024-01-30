@@ -23,15 +23,32 @@ const CartScreen = () => {
   
   const handlePayment = async (amount) => {
     try {
-     await Razorpay.razorPayPayment(amount).then((res)=>{
-      const data = res.data
-      PlaceOrderService.placeOrder(data).then((orderResponse)=>{
-        console.log("orderres :"+orderResponse)
-      })
-       if(res.status === true){
-        navigation.navigate('Success')
-       }
-     })
+      // Using await to get the result directly
+      const payment = await Razorpay.razorPayPayment(amount);
+      const data = payment.data;
+      console.log("data:", data);
+  
+      // Using await to get the result directly
+      const placeOrder = await PlaceOrderService.placeOrder(data);
+      console.log("order:", placeOrder);
+  
+      if (payment.status === true) {
+        navigation.navigate('Success');
+      }
+    
+  
+      
+      // .then((res)=>{
+    //   const data = res.data
+    //   // PlaceOrderService.placeOrder(data).then((orderResponse)=>{
+    //   //   console.log(orderResponse)
+    //   const order =  PlaceOrderService.placeOrder(data)
+    //   console.log(order)
+    //    if(res.status === true){
+        
+    //     navigation.navigate('Success')
+    //    }
+    //  })
       // Handle the response as needed
     } catch (error) {
       console.log("razorpay err:", error);
@@ -45,12 +62,12 @@ const CartScreen = () => {
 
   return (
     <View className="relative">
-      <ScrollView className="flex  mt-4 ">
-        <Text className=" top-2 text-center text-3xl font-gilroySemiBold">
+      <ScrollView className="flex mt-4 ">
+        <Text className="text-3xl text-center top-2 font-gilroySemiBold">
           My Cart
         </Text>
         <TouchableOpacity
-          className="absolute top-2 left-3 p-2  rounded-full mb-2"
+          className="absolute p-2 mb-2 rounded-full top-2 left-3"
           onPress={navigation.goBack}
         >
           <ArrowLeftIcon height={30} width={30} color="#00CCBB" />
@@ -76,21 +93,21 @@ const CartScreen = () => {
                 />
               ))}
           </View>
-          <View className="flex flex-row items-center justify-between mt-4 border-y border-gray-400 p-2">
-            <View className="flex-row space-x-3 items-center">
+          <View className="flex flex-row items-center justify-between p-2 mt-4 border-gray-400 border-y">
+            <View className="flex-row items-center space-x-3">
               <TicketIcon size={30} color="#FEAC56" />
-              <Text className="font-gilroySemiBold text-lg text-chineseBlack">
+              <Text className="text-lg font-gilroySemiBold text-chineseBlack">
                 Apply Coupon Code
               </Text>
             </View>
             <ChevronRightIcon size={30} color="#00CCBB" />
           </View>
-          <View className="flex mt-4 p-2 ">
+          <View className="flex p-2 mt-4 ">
             <View className="flex-row justify-between">
               <Text className="text-base font-interBold text-seaGreen">
                 Gross Total
               </Text>
-              <Text className="font-gilroySemiBold text-base">
+              <Text className="text-base font-gilroySemiBold">
                 RS. {cart.metaData.itemsTotal.toFixed(2)}
               </Text>
             </View>
@@ -98,27 +115,27 @@ const CartScreen = () => {
               <Text className="text-base font-interBold text-seaGreen">
                 Discount
               </Text>
-              <Text className="font-gilroySemiBold text-lg">
+              <Text className="text-lg font-gilroySemiBold">
                 RS. {cart.metaData.discount.toFixed(2)}
               </Text>
             </View>
           </View>
-          <View className="flex-row justify-between mt-4 border-y p-3">
+          <View className="flex-row justify-between p-3 mt-4 border-y">
             <Text className="text-lg font-interBold text-seaGreen">
               Grand Total
             </Text>
-            <Text className="font-gilroySemiBold text-lg">
+            <Text className="text-lg font-gilroySemiBold">
               RS. {cart.metaData.grandTotal.toFixed(2)}
             </Text>
           </View>
           <View className="p-5">
             <TouchableOpacity
-              className="bg-seaGreen mt-5 rounded-2xl flex items-center p-3 shadow-xl shadow-gray-400 border-b-2 border-gray-300 mb-4 "
+              className="flex items-center p-3 mt-5 mb-4 border-b-2 border-gray-300 shadow-xl bg-seaGreen rounded-2xl shadow-gray-400 "
               onPress={() => handlePayment(cart.metaData.grandTotal)}
             >
               <View className="flex-row space-x-3">
                 <ShoppingCartIcon size={30} color="#FFFF" />
-                <Text className="text-white font-gilroyBold text-xl">
+                <Text className="text-xl text-white font-gilroyBold">
                   Checkout RS. {cart.metaData.grandTotal.toFixed(2)}
                 </Text>
               </View>
