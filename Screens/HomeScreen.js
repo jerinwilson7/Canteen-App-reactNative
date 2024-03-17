@@ -71,7 +71,7 @@ const HomeScreen = () => {
           {/* Featured Rows */}
           <FeaturedRow 
             id="123"
-            title="free"
+            title="Specials"
             description="paid placements"
             
           />

@@ -1,7 +1,9 @@
 # Ignore Node.js modules
 node_modules/
 
-server/
+#ingnore server
+
+server/server
 
 # Ignore compiled code
 dist/
