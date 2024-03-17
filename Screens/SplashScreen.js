@@ -8,7 +8,7 @@ const SplashScreen = () => {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" translucent />
       {/* <Image source={Images.PLATE} resizeMode="contain" style={styles.image} /> */}
-      <Text style={styles.titleText}>FooDelivery</Text>
+      <Text style={styles.titleText}>BITE BUDDY</Text>
     </View>
   );
 };

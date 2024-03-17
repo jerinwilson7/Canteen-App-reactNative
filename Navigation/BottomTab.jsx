@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../Screens/HomeScreen";
-import { CartScreen } from "../Screens";
+import { AccountScreen, CartScreen, SuccessScreen } from "../Screens";
 import { HomeIcon, QueueListIcon, ShoppingBagIcon, UserIcon } from "react-native-heroicons/outline";
 
 const bottomTabs = createBottomTabNavigator();
@@ -31,7 +31,7 @@ export default () => (
 
 <bottomTabs.Screen
       name="Menu"
-      component={CartScreen}
+      component={SuccessScreen}
       options={{
         tabBarIcon: ({ color }) => <QueueListIcon size={25} color={color} />,
       }}
@@ -39,7 +39,7 @@ export default () => (
 
 <bottomTabs.Screen
       name="Account"
-      component={CartScreen}
+      component={AccountScreen}
       options={{
         tabBarIcon: ({ color }) => <UserIcon size={25} color={color} />,
       }}
