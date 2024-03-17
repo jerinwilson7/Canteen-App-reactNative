@@ -6,13 +6,13 @@ import SplashScreen from "./SplashScreen";
 import CartScreen from "./CartScreen";
 import FoodScreen from "./FoodScreen";
 import SuccessScreen from "./SuccessScreen";
-import AccountScreen from "./AccountScreen";
+import ProfileScreen from "./ProfileScreen";
 export {
   HomeScreen,
   OnboardingScreen,
   SignInScreen,
   LogInScreen,
-  AccountScreen,
+ ProfileScreen,
   SplashScreen,
   CartScreen,
   FoodScreen,

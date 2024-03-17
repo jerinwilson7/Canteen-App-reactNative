@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../Screens/HomeScreen";
-import { AccountScreen, CartScreen, SuccessScreen } from "../Screens";
+import {  CartScreen, ProfileScreen, SuccessScreen } from "../Screens";
 import { HomeIcon, QueueListIcon, ShoppingBagIcon, UserIcon } from "react-native-heroicons/outline";
 
 const bottomTabs = createBottomTabNavigator();
@@ -38,8 +38,8 @@ export default () => (
     />
 
 <bottomTabs.Screen
-      name="Account"
-      component={AccountScreen}
+      name="Profile"
+      component={ProfileScreen}
       options={{
         tabBarIcon: ({ color }) => <UserIcon size={25} color={color} />,
       }}
