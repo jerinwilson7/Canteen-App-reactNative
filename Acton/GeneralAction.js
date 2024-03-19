@@ -2,6 +2,7 @@ import { AuthService } from "../Services";
 import StorageService from "../Services/StorageService";
 import UserServices from "../Services/UserServices";
 import CartAction from "./CartAction";
+import UserActions from "./UserActions";
 
 const types = {
   SET_IS_APP_LOADING: "SET_IS_APP_LOADING",
@@ -57,6 +58,11 @@ const appStart = () => {
               type: types.SET_IS_APP_LOADING,
               payload: false,
             });
+            dispatch(UserActions.getUser())
+            dispatch({
+              type: types.SET_IS_APP_LOADING,
+              payload : false
+            })
           } else if (res.data.message == "TokenExpiredError") {
             console.log("refresh-action");
             AuthService.refreshToken().then((tokenResponse) => {
