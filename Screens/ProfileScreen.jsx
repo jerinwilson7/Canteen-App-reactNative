@@ -43,7 +43,7 @@ const ProfileScreen = () => {
         </View>
 
         <View className="mt-4">
-          <TouchableOpacity className="flex-row items-center justify-between mt-3">
+          <TouchableOpacity onPress={()=>navigation.navigate('Account')} className="flex-row items-center justify-between mt-3">
             <View className=" rounded-md p-3 flex-row space-x-5">
             <UserIcon size={30} color="#00CCBB"/>
             <Text className="font-gilroySemiBold text-xl">Account Info</Text>
