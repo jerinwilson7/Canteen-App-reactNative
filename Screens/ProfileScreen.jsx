@@ -50,7 +50,7 @@ const ProfileScreen = () => {
             </View>
             <ChevronRightIcon size={30} color="#00CCBB"/>
           </TouchableOpacity>
-          <TouchableOpacity className="flex-row items-center justify-between mt-3">
+          <TouchableOpacity onPress={()=>navigation.navigate('Orders')} className="flex-row items-center justify-between mt-3">
             <View className=" rounded-md p-3 flex-row space-x-5">
             <Square3Stack3DIcon size={30} color="#00CCBB"/>
             <Text className="font-gilroySemiBold text-xl">Orders</Text>

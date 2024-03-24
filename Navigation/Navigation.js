@@ -9,6 +9,7 @@ import {
   HomeScreen,
   LogInScreen,
   OnboardingScreen,
+  OrdersScreen,
   ProfileScreen,
   SignInScreen,
   SplashScreen,
@@ -55,6 +56,7 @@ const Navigation = () => {
             <Stack.Screen name="Food" component={FoodScreen} />
             <Stack.Screen name="profile" component={ProfileScreen} />
             <Stack.Screen name="Account" component={AccountInfo} />
+            <Stack.Screen name="Orders" component={OrdersScreen} />
             <Stack.Screen name="Success" component={SuccessScreen} />
             </>
           )}

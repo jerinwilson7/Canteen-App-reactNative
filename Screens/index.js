@@ -8,11 +8,13 @@ import FoodScreen from "./FoodScreen";
 import SuccessScreen from "./SuccessScreen";
 import ProfileScreen from "./ProfileScreen";
 import AccountInfo from "./AccountInfo";
+import OrdersScreen from "./OrdersScreen";
 export {
   HomeScreen,
   OnboardingScreen,
   SignInScreen,
   LogInScreen,
+  OrdersScreen,
   AccountInfo,
  ProfileScreen,
   SplashScreen,
