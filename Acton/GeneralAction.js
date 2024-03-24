@@ -2,6 +2,7 @@ import { AuthService } from "../Services";
 import StorageService from "../Services/StorageService";
 import UserServices from "../Services/UserServices";
 import CartAction from "./CartAction";
+import OrderAction from "./OrderAction";
 import UserActions from "./UserActions";
 
 const types = {
@@ -59,6 +60,11 @@ const appStart = () => {
               payload: false,
             });
             dispatch(UserActions.getUser())
+            dispatch({
+              type: types.SET_IS_APP_LOADING,
+              payload : false
+            })
+            dispatch(OrderAction.getOrder())
             dispatch({
               type: types.SET_IS_APP_LOADING,
               payload : false
