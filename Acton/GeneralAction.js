@@ -3,6 +3,7 @@ import StorageService from "../Services/StorageService";
 import UserServices from "../Services/UserServices";
 import CartAction from "./CartAction";
 import OrderAction from "./OrderAction";
+import ProductAction from "./ProductAction";
 import UserActions from "./UserActions";
 
 const types = {
@@ -53,6 +54,11 @@ const appStart = () => {
             dispatch({
               type: types.SET_USER_DATA,
               payload: res.data,
+            });
+            dispatch(ProductAction.getProducts())
+            dispatch({
+              type: types.SET_IS_APP_LOADING,
+              payload: false,
             });
             dispatch(CartAction.getCartItems())
             dispatch({
