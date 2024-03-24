@@ -38,7 +38,27 @@ const FeaturedRow = ({ id, title, description }) => {
         className="pt-4"
       >
         {/* FoodCards */}
-        {foodList?.map((food)=>(
+
+
+        {foodList
+          .filter((food) => food.title === title) // Filter based on title
+          .map((food) => (
+            <FoodCard
+              key={food._id}
+              id={food._id}
+              imgUrl={food.file}
+              name={food.name}
+              title={food.title}
+              price={food.price}
+              quantity={food.quantity}
+              ShortDescription={food.description}
+              category={food.category}
+            />
+          ))}
+
+
+
+        {/* {foodList?.map((food)=>(
 
         <FoodCard key={food._id}
           id={food._id}
@@ -54,7 +74,7 @@ const FeaturedRow = ({ id, title, description }) => {
         
           
         />
-        ))}
+        ))} */}
         
       </ScrollView>
     </View>

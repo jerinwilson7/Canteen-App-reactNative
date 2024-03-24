@@ -32,7 +32,7 @@ const FoodCard = ({
         source={{
           uri: imgUrl,
         }}
-        className="h-36 w-64"
+        className="h-36 w-64 rounded-md"
         
        />
       <View className="pb-4 px-3">
