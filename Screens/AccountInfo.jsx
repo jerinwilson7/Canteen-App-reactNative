@@ -13,7 +13,7 @@ const AccountInfo = () => {
     <View className="p-3">
         <View className="flex-row  mt-3 items-center space-x-6">
         <ChevronLeftIcon size={30} color="#00CCBB" onPress={navigation.goBack}/>
-      <Text className="text-xl font-gilroyMedium">Account Info</Text>
+      <Text className="text-xl font-gilroyBold">Account Info</Text>
         </View>
         <View className="mt-7">
         <View className=" flex-row items-end justify-between border-b-2 border-gray-200 pb-5">
@@ -36,5 +36,7 @@ const AccountInfo = () => {
     </View>
   )
 }
+
+
 
 export default AccountInfo
