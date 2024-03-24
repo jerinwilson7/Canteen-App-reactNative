@@ -23,4 +23,20 @@ const placeOrder = async(data)=>{
    
 }
 
-export default  {placeOrder}
+const getUserOrders = async()=>{
+    try {
+        console.log('orderService | getUserOrders');
+        return new Promise(async(resolve,reject)=>{
+        const token = getToken()
+        const response = await axios.get(`${server}/order/user-orders`,
+        {
+            headers: authHeader(token)
+        })
+        resolve(response.data)
+    })
+    } catch (error) {
+        
+    }
+}
+
+export default  {placeOrder,getUserOrders}
