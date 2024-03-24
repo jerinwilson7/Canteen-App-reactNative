@@ -20,6 +20,12 @@ import { useNavigation } from "@react-navigation/native";
 
 
 const HomeScreen = () => {
+
+//  const products = useSelector((state)=>state.productState.product)
+//  console.log(products)
+
+
+  
   const navigation = useNavigation();
 
   return (
@@ -77,7 +83,7 @@ const HomeScreen = () => {
           />
           <FeaturedRow 
             id="123"
-            title="featured"
+            title="Featured"
             description="paid placements"
             
           />
@@ -85,13 +91,13 @@ const HomeScreen = () => {
           {/* Tasty discounts */}
           <FeaturedRow
             id="1234"
-            title="Tasty Discounts"
+            title="Quick Bytes"
             description="paid placements"
           />
           {/* offers for you */}
           <FeaturedRow
             id="12345"
-            title="Offers for you"
+            title="Drinks"
             description="paid placements"
           />
         </ScrollView>
