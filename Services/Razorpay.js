@@ -1,6 +1,9 @@
 import { RAZORPAY_KEY_ID, RAZORPAY_SECRET_KEY } from "@env";
 import RazorpayCheckout from "react-native-razorpay";
 
+  // const razorPayKeyId = 
+  // const razorPaySecretKey =
+
 const razorPayPayment = (total) => {
   return new Promise((resolve, reject) => 
  
