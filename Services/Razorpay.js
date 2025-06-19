@@ -2,10 +2,7 @@ import { RAZORPAY_KEY_ID, RAZORPAY_SECRET_KEY } from "@env";
 import RazorpayCheckout from "react-native-razorpay";
 
 const razorPayPayment = (total) => {
-  return new Promise((resolve, reject) => {
-
-  const razorPayKeyId = "rzp_test_Z30BGEehteYBgV";
-  const razorPaySecretKey = "foFX1okXsCus9w1Dr5LGBKVM";
+  return new Promise((resolve, reject) => 
  
 
   const currency = "INR";
